@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Leena Sharma Library — writing, films, listening, art, field notes and everything in between." />
+  <meta name="theme-color" content="#f1ede4" />
+  <title>Leena Sharma Library</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+  <header class="site-header" id="top">
+    <a class="wordmark" href="#top" aria-label="Leena Sharma Library home">
+      <span class="wordmark-mark">LS</span>
+      <span class="wordmark-copy">Leena Sharma<br />Library</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#recent">Recently added</a>
+      <a href="#shelves">The shelves</a>
+      <a href="#timeline">Life index</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-button" id="searchOpen" type="button" aria-label="Search the library">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.8"></circle><path d="m16.2 16.2 4.1 4.1"></path></svg>
+      </button>
+      <button class="text-button" id="randomItem" type="button">Pull a card</button>
+      <button class="icon-button mobile-menu-button" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#recent">Recently added</a>
+    <a href="#shelves">The shelves</a>
+    <a href="#timeline">Life index</a>
+    <a href="#about">About</a>
+  </div>
+
+  <main>
+    <section class="hero section-shell" aria-labelledby="heroTitle">
+      <div class="hero-kicker">
+        <span>Personal archive</span>
+        <span class="hero-kicker-line"></span>
+        <span>Est. whenever I began noticing things</span>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1 id="heroTitle">
+            Things I have
+            <span class="hero-emphasis">made, watched, heard,</span>
+            saved &amp; changed my mind about.
+          </h1>
+          <p class="hero-intro">
+            I am Leena — writer, director, creative strategist, VFX producer, former reporter and permanent student. This is not the neat version of me. It is the shelf where finished work sits beside half-written thoughts, cultural obsessions and inconvenient questions.
+          </p>
+          <div class="hero-links">
+            <a class="primary-link" href="#shelves">Enter the library <span>↘</span></a>
+            <a class="secondary-link" href="#now">What I’m doing now</a>
+          </div>
+        </div>
+
+        <aside class="library-card" aria-label="Leena Sharma library card">
+          <div class="card-topline">
+            <span>Member card</span>
+            <span>№ LS–0001</span>
+          </div>
+          <div class="card-portrait" aria-hidden="true">
+            <span>L</span>
+            <div class="portrait-orbit orbit-one"></div>
+            <div class="portrait-orbit orbit-two"></div>
+          </div>
+          <div class="card-name">Leena Sharma</div>
+          <dl class="card-fields">
+            <div><dt>Collects</dt><dd>Stories, frames, language</dd></div>
+            <div><dt>Coordinates</dt><dd>Mumbai ↔ Odisha ↔ elsewhere</dd></div>
+            <div><dt>Status</dt><dd><span class="status-dot"></span> Always updating</dd></div>
+          </dl>
+          <div class="card-stamp">NOT FOR RETURN</div>
+        </aside>
+      </div>
+
+      <div class="hero-footnote">
+        <span>Scroll to browse</span>
+        <span class="footnote-rule"></span>
+        <span>Words / Film / Sound / Art / Life</span>
+      </div>
+    </section>
+
+    <section class="signal-strip" aria-label="Current interests">
+      <div class="signal-track">
+        <span>WRITING A MANUSCRIPT</span><i>✦</i>
+        <span>READING DALIT LITERATURE</span><i>✦</i>
+        <span>THINKING IN FRAMES</span><i>✦</i>
+        <span>MAKING NOTES IN THE MARGINS</span><i>✦</i>
+        <span>LEARNING HOW IMAGES BECOME BELIEVABLE</span><i>✦</i>
+        <span>WRITING A MANUSCRIPT</span><i>✦</i>
+        <span>READING DALIT LITERATURE</span><i>✦</i>
+        <span>THINKING IN FRAMES</span><i>✦</i>
+      </div>
+    </section>
+
+    <section class="recent section-shell" id="recent" aria-labelledby="recentTitle">
+      <div class="section-heading-row">
+        <div>
+          <p class="eyebrow">01 / The front desk</p>
+          <h2 id="recentTitle">Recently catalogued</h2>
+        </div>
+        <p class="section-note">One mixed feed for new essays, social posts, film notes, listening and things made.</p>
+      </div>
+
+      <div class="recent-grid" id="recentGrid"></div>
+
+      <div class="elsewhere-bar" aria-label="Latest posts from elsewhere">
+        <div class="elsewhere-intro">
+          <p class="eyebrow">Elsewhere, recently</p>
+          <h3>The public trail</h3>
+          <p>Your newest blog, LinkedIn and Instagram posts live together here, without turning the page into a social-media wall.</p>
+        </div>
+        <div class="elsewhere-links">
+          <a href="#" data-placeholder-link>
+            <span class="platform-icon">B</span>
+            <span><strong>Latest blog</strong><small>Connect your publishing feed</small></span>
+            <span class="arrow">↗</span>
+          </a>
+          <a href="#" data-placeholder-link>
+            <span class="platform-icon">in</span>
+            <span><strong>Latest LinkedIn thought</strong><small>Curate one post at a time</small></span>
+            <span class="arrow">↗</span>
+          </a>
+          <a href="#" data-placeholder-link>
+            <span class="platform-icon">◎</span>
+            <span><strong>Latest Instagram frame</strong><small>Image, caption, context</small></span>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="shelves section-shell" id="shelves" aria-labelledby="shelvesTitle">
+      <div class="section-heading-row shelf-heading">
+        <div>
+          <p class="eyebrow">02 / Browse the stacks</p>
+          <h2 id="shelvesTitle">The shelves</h2>
+        </div>
+        <div class="catalog-tools" role="group" aria-label="Filter catalogue">
+          <button class="filter-button active" type="button" data-filter="all">All</button>
+          <button class="filter-button" type="button" data-filter="writing">Writing</button>
+          <button class="filter-button" type="button" data-filter="watched">Watched</button>
+          <button class="filter-button" type="button" data-filter="listening">Listening</button>
+          <button class="filter-button" type="button" data-filter="made">Made</button>
+          <button class="filter-button" type="button" data-filter="chapters">Chapters</button>
+        </div>
+      </div>
+
+      <div class="shelf-layout">
+        <aside class="shelf-index" aria-label="Library shelf index">
+          <div class="index-top">
+            <span>Index</span>
+            <span id="catalogueCount">00 records</span>
+          </div>
+          <div id="shelfIndexRows"></div>
+          <button class="index-search" id="indexSearch" type="button">
+            <span>Search every shelf</span><span>⌘ K</span>
+          </button>
+        </aside>
+
+        <div class="catalogue" id="catalogueGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="now section-shell" id="now" aria-labelledby="nowTitle">
+      <div class="now-card">
+        <div class="now-label">
+          <span>NOW</span>
+          <small>Last edited: July 2026</small>
+        </div>
+        <div class="now-copy">
+          <p class="eyebrow">A note left open on the desk</p>
+          <h2 id="nowTitle">I am in a season of making my inner life less private.</h2>
+          <div class="now-columns">
+            <p>
+              I am writing a fiction manuscript, developing an independent short film and continuing my MA in English Literature. My research keeps pulling me toward Dalit writing, image-making, authorship and the politics of who gets to tell a story.
+            </p>
+            <p>
+              Professionally, I am interested in the point where cultural insight becomes an idea, and where that idea survives production without losing its soul. Personally, I am trying to document the things I usually assume I will remember.
+            </p>
+          </div>
+          <div class="now-tags">
+            <span>writing</span><span>world cinema</span><span>visual culture</span><span>literature</span><span>making a film</span>
+          </div>
+        </div>
+        <div class="now-doodle" aria-hidden="true">
+          <svg viewBox="0 0 180 180"><path d="M20 116c40-50 87-77 134-43-31 6-52 25-55 57-16-16-42-20-79-14Z"></path><path d="M42 76c11 7 19 17 25 31M72 58c8 11 11 23 10 36M107 54c-1 13-5 25-13 35"></path></svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="made-section section-shell" aria-labelledby="madeTitle">
+      <div class="section-heading-row">
+        <div>
+          <p class="eyebrow">03 / Things with fingerprints</p>
+          <h2 id="madeTitle">Made, directed, written</h2>
+        </div>
+        <p class="section-note">Not case studies. Objects, stories and productions that became part of the person.</p>
+      </div>
+
+      <div class="work-wall">
+        <button class="work-tile work-tile-large" type="button" data-open-item="soil-to-silver">
+          <img src="assets/soil-to-silver.svg" alt="Abstract cover for Soil to Silver" />
+          <span class="work-meta"><small>Documentary / Writer &amp; Director</small><strong>Soil to Silver</strong><em>Open archive card ↗</em></span>
+        </button>
+        <button class="work-tile" type="button" data-open-item="last-bench">
+          <img src="assets/last-bench.svg" alt="Abstract cover for The Last Bench" />
+          <span class="work-meta"><small>Independent short film</small><strong>The Last Bench</strong><em>Unreleased</em></span>
+        </button>
+        <button class="work-tile" type="button" data-open-item="bacche-aur-naale">
+          <img src="assets/bacche-aur-naale.svg" alt="Abstract cover for Bacche Aur Naale" />
+          <span class="work-meta"><small>Independent short film</small><strong>Bacche Aur Naale</strong><em>Writer / Director / Producer</em></span>
+        </button>
+        <button class="work-tile work-tile-wide" type="button" data-open-item="manuscript-in-progress">
+          <img src="assets/manuscript.svg" alt="Abstract cover for an untitled manuscript" />
+          <span class="work-meta"><small>Fiction / Work in progress</small><strong>The manuscript without a public title</strong><em>Notes, research, fragments</em></span>
+        </button>
+      </div>
+      <p class="prototype-note">Cover artwork is original placeholder artwork for this prototype and can be replaced with Leena’s own stills, drawings and scans.</p>
+    </section>
+
+    <section class="timeline section-shell" id="timeline" aria-labelledby="timelineTitle">
+      <div class="section-heading-row">
+        <div>
+          <p class="eyebrow">04 / The life index</p>
+          <h2 id="timelineTitle">How the shelves got here</h2>
+        </div>
+        <p class="section-note">A biography told through turning points, not job titles.</p>
+      </div>
+
+      <div class="timeline-track">
+        <article class="timeline-entry">
+          <div class="timeline-year">2018—21</div>
+          <div><h3>Finding a public voice</h3><p>Journalism school, service learning, classrooms, slogans, reporting and the first serious attempts to understand what a story can do in the world.</p></div>
+        </article>
+        <article class="timeline-entry">
+          <div class="timeline-year">2019</div>
+          <div><h3>Reporting through Cyclone Fani</h3><p>Ground reporting in Odisha made neat narrative arcs feel dishonest. Real life rarely resolves before the deadline.</p></div>
+        </article>
+        <article class="timeline-entry">
+          <div class="timeline-year">Then</div>
+          <div><h3>Learning to turn observation into ideas</h3><p>At Schbang, culture, copy, scripts and campaigns became a daily practice. #BeTheChangeForTB showed what happens when an idea earns participation.</p></div>
+        </article>
+        <article class="timeline-entry">
+          <div class="timeline-year">Later</div>
+          <div><h3>Entering the invisible side of film</h3><p>Netflix VFX production revealed the thousands of decisions behind a believable frame—from The Royals to more than 800 shots on Mismatched S3.</p></div>
+        </article>
+        <article class="timeline-entry">
+          <div class="timeline-year">Now</div>
+          <div><h3>Returning to authorship</h3><p>Writing a manuscript, developing an independent film and building a practice where strategy, literature, production and personal curiosity can coexist.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="about section-shell" id="about" aria-labelledby="aboutTitle">
+      <div class="about-grid">
+        <div class="about-heading">
+          <p class="eyebrow">05 / About this place</p>
+          <h2 id="aboutTitle">A library is more honest than a portfolio.</h2>
+        </div>
+        <div class="about-copy">
+          <p class="about-lead">A portfolio asks, “What have you accomplished?” A library asks, “What have you paid attention to?” I prefer the second question.</p>
+          <p>This archive holds published writing and unfinished notes, films I made and films that remade me, work memories, screenshots, reading lists, visual experiments, conversations with ideas and evidence of changing my mind.</p>
+          <p>Some shelves will be orderly. Some will be crowded. Some will stay empty until I become the person who can fill them.</p>
+          <div class="about-links">
+            <a href="mailto:leenathewriter@gmail.com">Write to me ↗</a>
+            <a href="#" data-placeholder-link>LinkedIn ↗</a>
+            <a href="#" data-placeholder-link>Instagram ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <div>
+      <span class="footer-mark">LSL</span>
+      <p>Leena Sharma Library<br />A life, catalogued in public.</p>
+    </div>
+    <div class="footer-meta">
+      <p>Built to remain unfinished.</p>
+      <a href="#top">Back to the front desk ↑</a>
+    </div>
+  </footer>
+
+  <div class="search-overlay" id="searchOverlay" aria-hidden="true">
+    <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+      <div class="search-topline">
+        <span id="searchTitle">Search the library</span>
+        <button class="icon-button" id="searchClose" type="button" aria-label="Close search">×</button>
+      </div>
+      <label class="search-input-wrap">
+        <span class="sr-only">Search query</span>
+        <input id="searchInput" type="search" placeholder="Try “film”, “Odisha”, “writing”…" autocomplete="off" />
+        <kbd>ESC</kbd>
+      </label>
+      <div class="search-results" id="searchResults">
+        <p class="search-empty">Type a word. I’ll look through titles, notes and tags.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="itemModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close item">×</button>
+      <div id="modalContent"></div>
+    </article>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

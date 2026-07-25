@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <rect width="900" height="900" fill="#1f5279"/>
+  <path d="M-20 655c118-83 212-80 302 9 90 90 195 91 314 1 112-85 217-86 324-5v240H-20Z" fill="#d8ddd5"/>
+  <path d="M-16 707c115-81 209-79 301 10 92 89 197 89 314 0 112-86 218-86 321-4" fill="none" stroke="#1f5279" stroke-width="6"/>
+  <g stroke="#eabf45" stroke-width="9" stroke-linecap="round">
+    <path d="M205 376v172M160 423h91M205 548l-58 86M205 548l62 83"/>
+    <circle cx="205" cy="320" r="49" fill="none"/>
+    <path d="M648 412v157M605 452h88M648 568l-52 71M648 568l58 69"/>
+    <circle cx="648" cy="361" r="44" fill="none"/>
+  </g>
+  <g font-family="Georgia, serif" fill="#f5ebdd">
+    <text x="52" y="84" font-size="21" letter-spacing="6">WRITTEN &amp; DIRECTED BY LEENA SHARMA</text>
+    <text x="49" y="188" font-size="88" font-style="italic">Bacche Aur</text>
+    <text x="48" y="275" font-size="110">Naale</text>
+  </g>
+</svg>

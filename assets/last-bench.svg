@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <rect width="900" height="900" fill="#c64432"/>
+  <g stroke="#f4eadb" fill="none" stroke-width="7">
+    <path d="M150 532h600M190 591h520M220 532l-42 214M682 532l40 214M244 591l-22 155M657 591l22 155"/>
+    <path d="M74 198c94 63 179 70 256 20 92-59 161-54 269 24 67 48 136 57 227 18" opacity=".48"/>
+    <path d="M74 238c94 63 179 70 256 20 92-59 161-54 269 24 67 48 136 57 227 18" opacity=".24"/>
+  </g>
+  <circle cx="697" cy="220" r="82" fill="#f0c458"/>
+  <g font-family="Georgia, serif" fill="#f8eee1">
+    <text x="60" y="92" font-size="22" letter-spacing="7">AN INDEPENDENT SHORT FILM</text>
+    <text x="55" y="422" font-size="118" font-style="italic">The Last</text>
+    <text x="55" y="527" font-size="132">Bench</text>
+  </g>
+</svg>

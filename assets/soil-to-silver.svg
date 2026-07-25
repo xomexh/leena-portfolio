@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#23231f"/>
+  <circle cx="870" cy="233" r="126" fill="#d7d4cc"/>
+  <g fill="none" stroke="#b98b55" stroke-width="6">
+    <path d="M-80 800C190 610 390 565 610 526c220-39 359-150 700-339"/>
+    <path d="M-30 860C255 664 454 632 677 588c220-43 376-159 690-340"/>
+    <path d="M20 918C305 730 510 693 735 650c217-42 365-152 681-333"/>
+    <path d="M70 978C358 787 565 756 790 710c225-46 381-164 697-342"/>
+  </g>
+  <path d="M832 106c18 41 30 83 36 127M901 104c-7 44-8 87-2 129" stroke="#23231f" stroke-width="5" fill="none"/>
+  <g font-family="Georgia, serif" fill="#f1ede4">
+    <text x="72" y="122" font-size="27" letter-spacing="8">A FILM BY LEENA SHARMA</text>
+    <text x="67" y="706" font-size="116" font-style="italic">Soil to</text>
+    <text x="68" y="822" font-size="146">Silver</text>
+  </g>
+</svg>

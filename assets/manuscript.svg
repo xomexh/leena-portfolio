@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#e6d8ca"/>
+  <g fill="#1c1b19">
+    <rect x="70" y="70" width="700" height="24"/>
+    <rect x="70" y="122" width="896" height="15" opacity=".28"/>
+    <rect x="70" y="160" width="780" height="15" opacity=".28"/>
+    <rect x="70" y="198" width="940" height="15" opacity=".28"/>
+    <rect x="70" y="236" width="630" height="15" opacity=".28"/>
+    <rect x="70" y="318" width="900" height="15" opacity=".28"/>
+    <rect x="70" y="356" width="825" height="15" opacity=".28"/>
+    <rect x="70" y="394" width="965" height="15" opacity=".28"/>
+    <rect x="70" y="432" width="722" height="15" opacity=".28"/>
+  </g>
+  <path d="M796 522c103-91 207-86 313 4-110-8-185 50-208 173-9-99-44-157-105-177Z" fill="#bf3b2b"/>
+  <path d="M730 592c-58 18-112 53-161 103" fill="none" stroke="#1c1b19" stroke-width="4"/>
+  <g font-family="Georgia, serif" fill="#1c1b19">
+    <text x="65" y="610" font-size="72" font-style="italic">An untitled</text>
+    <text x="64" y="702" font-size="112">manuscript</text>
+  </g>
+</svg>
