@@ -13,6 +13,7 @@
   const searchInput = document.getElementById("searchInput");
   const searchResults = document.getElementById("searchResults");
   const toast = document.getElementById("toast");
+  const libraryCard = document.querySelector(".library-card");
 
   const escapeHtml = (value = "") => value
     .replaceAll("&", "&amp;")
@@ -22,6 +23,47 @@
     .replaceAll("'", "&#039;");
 
   const visualClass = (visual) => `visual-${visual || "lines-ink"}`;
+
+  function initLibraryCardMotion() {
+    if (!libraryCard) return;
+
+    const canTilt = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const resetTilt = () => {
+      libraryCard.classList.remove("is-hovered");
+      libraryCard.style.setProperty("--card-rx", "0deg");
+      libraryCard.style.setProperty("--card-ry", "0deg");
+    };
+
+    const updateTilt = (event) => {
+      if (!canTilt.matches || reduceMotion.matches) return;
+      libraryCard.classList.add("is-hovered");
+      const bounds = libraryCard.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+      libraryCard.style.setProperty("--card-rx", `${(-y * 4.5).toFixed(2)}deg`);
+      libraryCard.style.setProperty("--card-ry", `${(x * 5.5).toFixed(2)}deg`);
+    };
+
+    const finishArrival = (event) => {
+      if (event.target === libraryCard && event.animationName === "member-card-arrive") {
+        libraryCard.classList.add("has-arrived");
+      }
+
+      if (event.animationName === "orbit-draw" && event.target.closest(".orbit-two")) {
+        libraryCard.classList.add("is-ready");
+        libraryCard.removeEventListener("animationend", finishArrival);
+      }
+    };
+
+    libraryCard.addEventListener("animationend", finishArrival);
+    libraryCard.addEventListener("pointermove", updateTilt);
+    libraryCard.addEventListener("pointerleave", resetTilt);
+    reduceMotion.addEventListener("change", resetTilt);
+
+    if (reduceMotion.matches) libraryCard.classList.add("has-arrived", "is-ready");
+  }
 
   function renderRecent() {
     const featured = data.items.filter((item) => item.featured).slice(0, 4);
@@ -199,6 +241,7 @@
   renderRecent();
   renderShelfIndex();
   renderCatalogue();
+  initLibraryCardMotion();
   readHash();
 
   document.addEventListener("click", (event) => {

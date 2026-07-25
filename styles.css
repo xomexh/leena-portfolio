@@ -266,14 +266,44 @@ img { display: block; max-width: 100%; }
 .secondary-link { border-bottom: 1px solid currentColor; padding-bottom: 4px; }
 
 .library-card {
+  --card-rx: 0deg;
+  --card-ry: 0deg;
+  --card-rz: 1.7deg;
+  --card-lift: 0px;
   position: relative;
   width: min(100%, 390px);
   justify-self: end;
   padding: 22px;
   border: 1px solid var(--ink);
   background: #e8dfce;
-  transform: rotate(1.7deg);
+  transform: perspective(1100px) translateY(var(--card-lift)) rotateX(var(--card-rx)) rotateY(var(--card-ry)) rotateZ(var(--card-rz));
+  transform-style: preserve-3d;
+  transform-origin: 50% 58%;
   box-shadow: 15px 16px 0 rgba(24, 24, 23, 0.07);
+  animation: member-card-arrive 920ms cubic-bezier(.16, 1, .3, 1) 120ms both;
+  will-change: transform;
+}
+.library-card.has-arrived {
+  animation: none;
+  transition: transform 180ms cubic-bezier(.16, 1, .3, 1), box-shadow 280ms cubic-bezier(.16, 1, .3, 1);
+}
+.library-card.is-ready .card-topline,
+.library-card.is-ready .card-portrait,
+.library-card.is-ready .card-portrait > span,
+.library-card.is-ready .card-name,
+.library-card.is-ready .card-fields > div,
+.library-card.is-ready .status-dot,
+.library-card.is-ready .card-stamp {
+  animation: none;
+}
+.library-card.is-ready .portrait-orbit ellipse {
+  animation: none;
+  stroke-dashoffset: 0;
+}
+.library-card.is-ready:hover,
+.library-card.is-ready.is-hovered {
+  --card-lift: -9px;
+  box-shadow: 23px 27px 0 rgba(24, 24, 23, 0.095);
 }
 .library-card::before, .library-card::after {
   content: "";
@@ -291,7 +321,10 @@ img { display: block; max-width: 100%; }
   top: -4px;
   left: 48%;
   transform: rotate(-3deg);
+  transition: transform 320ms cubic-bezier(.16, 1, .3, 1), background 320ms ease;
 }
+.library-card:hover::after,
+.library-card.is-hovered::after { transform: translateY(-2px) rotate(1deg); background: rgba(255, 255, 255, 0.68); }
 .card-topline {
   position: relative;
   z-index: 1;
@@ -301,6 +334,7 @@ img { display: block; max-width: 100%; }
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  animation: card-detail-in 520ms cubic-bezier(.16, 1, .3, 1) 540ms both;
 }
 .card-portrait {
   position: relative;
@@ -311,6 +345,7 @@ img { display: block; max-width: 100%; }
   overflow: hidden;
   background: var(--red);
   color: #f5e9dc;
+  animation: card-detail-in 650ms cubic-bezier(.16, 1, .3, 1) 300ms both;
 }
 .card-portrait > span {
   position: relative;
@@ -319,20 +354,40 @@ img { display: block; max-width: 100%; }
   font-size: clamp(96px, 10vw, 150px);
   font-style: italic;
   line-height: 1;
+  transition: transform 520ms cubic-bezier(.16, 1, .3, 1);
+  animation: monogram-arrive 780ms cubic-bezier(.16, 1, .3, 1) 440ms both;
 }
+.library-card:hover .card-portrait > span,
+.library-card.is-hovered .card-portrait > span { transform: translate3d(0, -2px, 18px) scale(1.055); }
 .portrait-orbit {
   position: absolute;
-  border: 1px solid rgba(245, 233, 220, 0.72);
-  border-radius: 50%;
+  overflow: visible;
+  fill: none;
+  stroke: rgba(245, 233, 220, 0.72);
+  stroke-width: 1.35;
+  vector-effect: non-scaling-stroke;
+  transition: transform 700ms cubic-bezier(.16, 1, .3, 1), opacity 300ms ease;
+}
+.portrait-orbit ellipse {
+  stroke-dasharray: 650;
+  stroke-dashoffset: 650;
+  animation: orbit-draw 1250ms cubic-bezier(.65, 0, .2, 1) forwards;
 }
 .orbit-one { width: 136%; height: 44%; transform: rotate(34deg); }
 .orbit-two { width: 69%; height: 125%; transform: rotate(-38deg); }
+.orbit-one ellipse { animation-delay: 620ms; }
+.orbit-two ellipse { animation-delay: 760ms; }
+.library-card:hover .orbit-one,
+.library-card.is-hovered .orbit-one { transform: rotate(42deg) scale(1.035); }
+.library-card:hover .orbit-two,
+.library-card.is-hovered .orbit-two { transform: rotate(-30deg) scale(.97); }
 .card-name {
   font-family: var(--serif);
   font-size: clamp(27px, 2.7vw, 38px);
   font-style: italic;
   border-bottom: 2px solid var(--ink);
   padding-bottom: 10px;
+  animation: card-detail-in 560ms cubic-bezier(.16, 1, .3, 1) 690ms both;
 }
 .card-fields { margin: 8px 0 0; }
 .card-fields > div {
@@ -342,7 +397,11 @@ img { display: block; max-width: 100%; }
   padding: 8px 0;
   border-bottom: 1px solid var(--line);
   font-size: 11px;
+  animation: card-field-in 520ms cubic-bezier(.16, 1, .3, 1) both;
 }
+.card-fields > div:nth-child(1) { animation-delay: 780ms; }
+.card-fields > div:nth-child(2) { animation-delay: 850ms; }
+.card-fields > div:nth-child(3) { animation-delay: 920ms; }
 .card-fields dt {
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -356,6 +415,7 @@ img { display: block; max-width: 100%; }
   border-radius: 50%;
   background: var(--green);
   margin-right: 6px;
+  animation: status-arrive 480ms cubic-bezier(.16, 1, .3, 1) 1080ms both;
 }
 .card-stamp {
   width: fit-content;
@@ -369,8 +429,38 @@ img { display: block; max-width: 100%; }
   letter-spacing: 0.06em;
   transform: rotate(-4deg);
   opacity: 0.78;
+  transition: transform 360ms cubic-bezier(.16, 1, .3, 1), opacity 260ms ease;
+  animation: stamp-arrive 560ms cubic-bezier(.2, .9, .25, 1.25) 980ms both;
 }
+.library-card:hover .card-stamp,
+.library-card.is-hovered .card-stamp { transform: translate3d(-3px, -3px, 14px) rotate(-1.5deg); opacity: .96; }
 .hero-footnote { margin-top: auto; }
+
+@keyframes member-card-arrive {
+  from { opacity: 0; transform: perspective(1100px) translate3d(24px, 54px, 0) rotateX(5deg) rotateY(-5deg) rotateZ(5.5deg) scale(.94); }
+  to { opacity: 1; transform: perspective(1100px) translateY(var(--card-lift)) rotateX(var(--card-rx)) rotateY(var(--card-ry)) rotateZ(var(--card-rz)) scale(1); }
+}
+@keyframes card-detail-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes card-field-in {
+  from { opacity: 0; transform: translateX(13px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes monogram-arrive {
+  from { opacity: 0; transform: translateY(14px) scale(.84); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes orbit-draw { to { stroke-dashoffset: 0; } }
+@keyframes stamp-arrive {
+  from { opacity: 0; transform: translateY(10px) scale(1.12) rotate(-8deg); }
+  to { opacity: .78; transform: translateY(0) scale(1) rotate(-4deg); }
+}
+@keyframes status-arrive {
+  from { opacity: 0; transform: scale(.2); }
+  to { opacity: 1; transform: scale(1); }
+}
 
 .signal-strip {
   overflow: hidden;
@@ -391,7 +481,42 @@ img { display: block; max-width: 100%; }
 }
 .signal-track i { color: var(--red); font-style: normal; }
 @keyframes ticker { to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .signal-track { animation: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .signal-track,
+  .library-card,
+  .card-topline,
+  .card-portrait,
+  .card-portrait > span,
+  .portrait-orbit ellipse,
+  .card-name,
+  .card-fields > div,
+  .status-dot,
+  .card-stamp {
+    animation: none;
+  }
+  .library-card,
+  .library-card.has-arrived,
+  .library-card::after,
+  .card-portrait > span,
+  .portrait-orbit,
+  .card-stamp {
+    transition: none;
+  }
+  .portrait-orbit ellipse { stroke-dashoffset: 0; }
+  .library-card:hover,
+  .library-card.is-hovered {
+    --card-lift: 0px;
+    box-shadow: 15px 16px 0 rgba(24, 24, 23, 0.07);
+  }
+  .library-card:hover .card-portrait > span,
+  .library-card.is-hovered .card-portrait > span { transform: none; }
+  .library-card:hover .orbit-one,
+  .library-card.is-hovered .orbit-one { transform: rotate(34deg); }
+  .library-card:hover .orbit-two,
+  .library-card.is-hovered .orbit-two { transform: rotate(-38deg); }
+  .library-card:hover .card-stamp,
+  .library-card.is-hovered .card-stamp { transform: rotate(-4deg); opacity: .78; }
+}
 
 .recent, .shelves, .made-section, .timeline, .about {
   padding-top: clamp(90px, 11vw, 176px);
@@ -1008,7 +1133,7 @@ body.night .catalogue-card:hover .catalogue-symbol::before { background: var(--i
   .mobile-menu.open { transform: translateY(0); }
   .mobile-menu a { padding: 16px 0; border-bottom: 1px solid var(--line); font-family: var(--serif); font-size: 28px; text-decoration: none; }
   .hero-grid { grid-template-columns: 1fr; }
-  .library-card { justify-self: start; width: min(100%, 480px); transform: rotate(-1.2deg); }
+  .library-card { --card-rz: -1.2deg; justify-self: start; width: min(100%, 480px); }
   .recent-card:nth-child(1) { grid-column: span 7; }
   .recent-card:nth-child(2) { grid-column: span 5; }
   .recent-card:nth-child(3) { grid-column: span 5; }
