@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A developing photography notebook from Leena Sharma." />
+  <meta name="theme-color" content="#f7f2e7" />
+  <title>Photography | Leena Sharma</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css?v=notebook-5" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the photographs</a>
+
+  <div class="paper-shell">
+    <header class="site-header">
+      <a class="brand-name" href="index.html">Leena Sharma</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="about.html">About me</a>
+        <a href="writings.html">Writings</a>
+        <a href="photography.html" aria-current="page">Photography</a>
+      </nav>
+      <time class="page-date" datetime="2026-09-05" data-current-date>05 / 09 / 26</time>
+    </header>
+
+    <main class="subpage photography-page" id="main">
+      <a class="back-link" href="index.html">Back to index</a>
+
+      <header class="page-heading photo-heading">
+        <h1>Photography</h1>
+        <p>Frames gathered from ordinary days, uncertain weather, and things noticed before they disappeared.</p>
+      </header>
+
+      <p class="placeholder-note">These editorial images hold the layout until Leena's own photography archive is connected.</p>
+
+      <section class="photo-grid" aria-label="Photography placeholders">
+        <figure class="photo-item photo-item-tall">
+          <button type="button" data-lightbox data-src="assets/rain-window.jpg" data-caption="Monsoon window. Editorial placeholder.">
+            <img src="assets/rain-window.jpg" alt="Rain on a bus window with a blurred city street outside" width="1024" height="1536" fetchpriority="high" />
+          </button>
+          <figcaption>Monsoon window <span>Editorial placeholder</span></figcaption>
+        </figure>
+
+        <figure class="photo-item photo-item-small">
+          <button type="button" data-lightbox data-src="assets/writing-desk.jpg" data-caption="The page before the sentence. Editorial placeholder.">
+            <img src="assets/writing-desk.jpg" alt="An open ruled notebook beside a fountain pen and tea" width="1024" height="1536" loading="lazy" />
+          </button>
+          <figcaption>The page before the sentence <span>Editorial placeholder</span></figcaption>
+        </figure>
+
+        <figure class="photo-item photo-item-wide">
+          <button type="button" data-lightbox data-src="assets/coastal-chair.jpg" data-caption="A chair facing the weather. Editorial placeholder.">
+            <img src="assets/coastal-chair.jpg" alt="A weathered blue chair on a coastal path beneath a pale sky" width="1536" height="1024" loading="lazy" />
+          </button>
+          <figcaption>A chair facing the weather <span>Editorial placeholder</span></figcaption>
+        </figure>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a href="index.html">Leena Sharma</a>
+      <p>Notes, frames, and a life in progress.</p>
+    </footer>
+  </div>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Expanded photograph">
+    <button class="lightbox-close" type="button" data-lightbox-close aria-label="Close photograph">Close</button>
+    <figure>
+      <img id="lightbox-image" alt="" />
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+  </dialog>
+
+  <script src="script.js?v=notebook-4"></script>
+</body>
+</html>

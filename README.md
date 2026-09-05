@@ -1,59 +1,37 @@
-# Leena Sharma Library
+# Leena Sharma portfolio
 
-A responsive, dependency-free prototype for a personal library: writing, opinions, media diaries, art, work memories and life chapters. It is deliberately designed **not** to read like a conventional portfolio.
+A dependency-free, multi-page personal portfolio based on a hand-drawn notebook layout.
 
-## Open it
+## Pages
 
-Open `index.html` directly in a browser, or serve the folder locally:
+- `index.html`: ruled-paper home index
+- `about.html`: biography and life notes
+- `writings.html`: expandable essays and notebook fragments
+- `photography.html`: responsive photo layout with an accessible lightbox
 
-```bash
-python3 -m http.server 8080
+## Preview locally
+
+Run the included PowerShell server:
+
+```powershell
+.\local-server.ps1
 ```
 
-Then visit `http://localhost:8080`.
+Then open `http://localhost:4173/`.
 
-## Edit the content
+## Content to connect
 
-Almost all catalogue content lives in `content.js`.
+The X, Instagram, and LinkedIn links on the home page intentionally show a friendly placeholder message until Leena's profile URLs are supplied.
 
-- Add, remove or reorder cards in `libraryData.items`.
-- Set `featured: true` on up to four records to place them in “Recently catalogued.”
-- Use `starter: true` for draft/demo entries. The interface labels these honestly.
-- Replace placeholder social links in `index.html`.
-- Replace the `NOW` note and biography directly in `index.html`.
+The three JPGs in `assets/` are generated editorial placeholders. Replace them with Leena's own work while keeping the filenames, or update the paths in `about.html` and `photography.html`.
 
-Each item supports:
+## Design tokens
 
-```js
-{
-  id: "unique-slug",
-  shelf: "writing", // writing | watched | listening | made | chapters
-  type: "Essay",
-  title: "Title",
-  excerpt: "One-sentence summary",
-  meta: "5 min read",
-  date: "25 July 2026",
-  tags: ["culture", "film"],
-  visual: "type-red",
-  featured: true,
-  starter: false,
-  image: "assets/optional-cover.svg",
-  body: ["Paragraph one.", "Paragraph two."]
-}
-```
+The main tokens live at the top of `styles.css`:
 
-## Replace prototype art
+- Headings: Times New Roman in indigo
+- Body: Courier New typewriter stack in brown
+- Background: light paper with horizontal blue rules and a red margin rule
+- Shape system: sharp corners throughout
 
-The four SVG covers in `assets/` are original placeholders made for this prototype. Swap them for Leena’s own photographs, scans, stills or artwork while keeping the same filenames, or update their paths in `index.html` and `content.js`.
-
-## Deploy
-
-Because this is a static site, the folder can be deployed without a build step to GitHub Pages, Netlify, Cloudflare Pages or Vercel.
-
-## Recommended next content pass
-
-1. Add the latest 3 real posts: one blog, one LinkedIn post and one Instagram post.
-2. Add five recent films and three podcast episodes using the same catalogue-card format.
-3. Replace the four project covers with actual stills or personal artwork.
-4. Rewrite the starter essays in Leena’s voice.
-5. Add a lightweight CMS only after the content rhythm feels right.
+No build step or package install is required.
